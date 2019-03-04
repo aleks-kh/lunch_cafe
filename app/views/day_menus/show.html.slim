@@ -1,0 +1,22 @@
+h4 Day Menu:
+br
+table.table.table-bordered
+  thead
+    tr
+      th scope="col"  = t('view.id')
+      th scope="col"  = t('view.menu_date')
+      th scope="col"  = t('view.created_by')
+      th scope="col"  = t('view.updated_by')
+  tbody
+    tr
+      th scope="row" = @day_menu.id
+      th = @day_menu.menu_date
+      td = format_date(@day_menu.created_at)
+      td = format_date(@day_menu.updated_at)
+br
+p.lead
+  => link_to 'Edit', edit_day_menu_path(@day_menu)
+  '|
+  =< link_to 'Back', day_menus_path
+  '|
+  =< link_to 'Menu Items', day_menu_menu_items_path(@day_menu)

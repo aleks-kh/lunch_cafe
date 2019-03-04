@@ -1,0 +1,35 @@
+= form_for @dish do |f|
+  .form-group.row class=('has-error' if @dish.errors[:category].any?)
+    = f.label :category, class:"col-sm-1 col-form-label"
+    .col-sm-4
+      = f.select :category_id, categories, { include_blank: true }, {class: 'form-control'}
+    span.help-block
+      = @dish.errors[:category].join(',') 
+  .form-group.row class=('has-error' if @dish.errors[:name].any?)
+    = f.label :name, class:"col-sm-1 col-form-label"
+    .col-sm-4
+      = f.text_field :name, class:"form-control"
+    span.help-block
+      = @dish.errors[:name].join(',') 
+  .form-group.row class=('has-error' if @dish.errors[:dish_type].any?)
+    - Dish.dish_types.keys.each do |dish_type|
+      = f.label dish_type, class:"col-form-label"
+      .col-sm-1
+        = f.radio_button :dish_type, dish_type
+      span.help-block
+        = @dish.errors[:dish_type].join(',')      
+  .form-group.row class=('has-error' if @dish.errors[:uom].any?)
+    = f.label :uom, class:"col-sm-1 col-form-label"
+    .col-sm-4
+      = f.select :uom, Dish.uoms.keys, {}, {class: 'form-control'}
+    span.help-block
+      = @dish.errors[:uom].join(',')         
+  .form-group.row class=('has-error' if @dish.errors[:weight].any?)
+    = f.label :weight, class:"col-sm-1 col-form-label"
+    .col-sm-4
+      = f.text_field :weight, class:"form-control"
+    span.help-block
+      = @dish.errors[:weight].join(',')    
+  .form-group.row
+    .col-sm-4
+      = f.submit class:"col-md-offset-1 btn btn-info"

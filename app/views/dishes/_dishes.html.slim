@@ -1,0 +1,13 @@
+.col-md-4
+  table.table.table-striped
+    thead 
+      br
+    - @dishes.each do |dish|    
+      tbody
+        tr
+          td = link_to dish.name, dish, class:"btn btn-link"
+          td 
+            h5 = "#{dish.weight}/#{dish.uom}"
+          td = link_to t('link.edit'), edit_dish_path(dish), class:"btn btn-warning btn-sm"
+          td = link_to t('link.delete'), dish, data: { confirm: 'Are you sure?' }, method: :delete, class:"btn btn-danger btn-sm" 
+   

@@ -1,0 +1,9 @@
+h3 
+  = t('view.edit_category')
+br
+== render 'form'
+p.lead
+  => link_to 'Show', @category
+  '|
+  =< link_to 'Back', categories_path
+

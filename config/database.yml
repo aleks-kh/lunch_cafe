@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: lunch_cafe
+
+test:
+  <<: *default
+  database: lunch_cafe_test
+
+production:
+  <<: *default
+  database: lunch_cafe
+  username: <%= Rails.application.credentials.dig(:db_pg, :username) %>
+  password: <%= Rails.application.credentials.dig(:db_pg, :password) %>
+  host: localhost

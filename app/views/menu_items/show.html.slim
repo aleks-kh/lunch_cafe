@@ -1,0 +1,30 @@
+h4 = t('view.menu_item')
+br
+table.table.table-bordered
+  thead
+    tr
+      th scope="col"  = t('view.id')
+      th scope="col"  = t('view.category')
+      th scope="col"  = t('view.dish')
+      th scope="col"  = t('view.weight')
+      th scope="col"  = t('view.uom')
+      th scope="col"  = t('view.price')
+      th scope="col"  = t('view.created_by')
+      th scope="col"  = t('view.updated_by')
+  tbody
+    tr
+      th scope="row" = @menu_item.id
+      th = @menu_item.dish.category.name
+      td = @menu_item.dish.name
+      th = @menu_item.dish.weight
+      td = @menu_item.dish.uom
+      th = @menu_item.price
+      td = format_date(@menu_item.created_at)
+      td = format_date(@menu_item.updated_at)
+br
+p.lead
+  => link_to t('link.edit'), edit_menu_item_path(@menu_item), class:"col-md-offset-1"
+  '|
+  =< link_to t('link.back'), day_menu_menu_items_path(@menu_item.day_menu_id)
+
+

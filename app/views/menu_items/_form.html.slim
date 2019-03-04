@@ -1,0 +1,20 @@
+= form_for [@day_menu, @menu_item] do |f|
+  = hidden_field_tag :day_menu_id, @menu_item.day_menu_id
+  = hidden_field_tag :dish_id, @menu_item.dish.id
+  .form-group.row
+    = f.label :category, class:"col-sm-1 col-form-label"
+    .col-lg-2
+      = text_field_tag :name, @menu_item.dish.category.name, disabled: true, class:"form-control"
+  .form-group.row
+    = f.label :dish, class:"col-sm-1 col-form-label"
+    .col-lg-2
+       = text_field_tag :name, "#{@menu_item.dish.name} #{@menu_item.dish.weight}/#{@menu_item.dish.uom}", disabled: true, class:"form-control" 
+  .form-group.row class=('has-error' if @menu_item.errors.any?)
+    = f.label :price, class:"col-sm-1 col-form-label"
+    .col-lg-2
+      = f.text_field :price, class:"form-control"
+    span.help-block
+      = @menu_item.errors.full_messages.join(',')    
+  .form-group.row
+    .col-sm-4
+      = f.submit class:"col-md-offset-1 btn btn-info"

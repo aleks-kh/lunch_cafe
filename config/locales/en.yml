@@ -1,0 +1,73 @@
+en:
+  info:
+    lunch_cafe: 'Lunch Cafe'
+    dish_menu: 'Select dish to add to the menu'
+
+  link:
+    category: 'Category'
+    dishes: 'Dishes'
+    day_menu: 'Day Menu'
+    log_out: 'Log Out'
+    log_in: 'Log In'
+    sign_up: 'Sign Up'
+    all: 'All  '
+    new_category: 'New Category'
+    edit: 'Edit'
+    delete: 'Delete'
+    back: 'Back'
+    new_day_menu: 'New Day Menu'
+    menu_items: 'Menu Items'
+    new_dish: 'New Dish'
+
+  category:
+    create: 'Category was successfully created'  
+    update: 'Category was successfully updated'
+    delete: 'Category was successfully deleted'
+
+  dish:
+    create: 'Dish was successfully created'  
+    update: 'Dish was successfully updated'
+    delete: 'Dish was successfully deleted'
+
+  day_menu:
+    create: 'Day Menu was successfully created'  
+    update: 'Day Menu was successfully updated'
+    delete: 'Day Menu was successfully deleted'  
+
+  menu_items:
+    create: 'Dish was successfully added to the menu'  
+    update: 'Dish was successfully updated in the menu'
+    delete: 'Dish has been successfully deleted from the menu'  
+
+  errors:
+    category_included: 'This category has dishes'
+    dish_delete: 'This dish is included in menu'
+    dish_included: 'This dish has already been added to the menu'  
+    in_portions: 'Uom should be portion'
+    by_weight: 'Uom should not be a portion'
+    
+  view:
+    edit_category: 'Editing category'
+    categories: 'Categories'
+    new_category: 'New category'
+    category: 'Category'
+    id: 'Id'
+    name: 'Name'
+    created_by: 'Created by'
+    updated_by: 'Updated by'
+    edit_day_menu: 'Editing Day Menu'
+    new_day_menu: 'New Day Menu'
+    day_menu: 'Day Menu'
+    menu_date: 'Menu Date'
+    edit_dish: 'Editing Dish'
+    dishes: 'Dishes'
+    new_dish: 'New dish'
+    dish_type: 'Dish Type'
+    weight: 'Weight'
+    uom: 'UOM'
+    menu: 'Menu'
+    edit_menu_item: 'Editing Menu Item'
+    menu_items: 'Menu Items'
+    dishes_menu: 'Dishes Menu:'
+    menu_item: 'Menu Item'
+    price: 'Price'

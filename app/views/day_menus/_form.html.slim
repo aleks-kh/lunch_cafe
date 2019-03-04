@@ -1,0 +1,10 @@
+= form_for @day_menu do |f|
+  .form-group.row class=('has-error' if @day_menu.errors.any?)
+    .col-lg-2
+      = f.label :menu_date
+      = f.date_field :menu_date
+      span.help-block
+        = @day_menu.errors.full_messages.join(',')    
+  .form-group.row
+    .col-sm-1
+      = f.submit class:"col-md-offset-1 btn btn-info"

@@ -1,0 +1,21 @@
+h4 = t('view.category')
+br
+table.table.table-bordered
+  thead
+    tr
+      th scope="col"  = t('view.id')
+      th scope="col"  = t('view.name')
+      th scope="col"  = t('view.created_by')
+      th scope="col"  = t('view.updated_by')
+  tbody
+    tr
+      th scope="row" = @category.id
+      th = @category.name
+      td = format_date(@category.created_at)
+      td = format_date(@category.updated_at)
+br
+p.lead
+  => link_to t('link.edit'), edit_category_path(@category), class:"col-md-offset-1"
+  '|
+  =< link_to t('link.back'), categories_path
+

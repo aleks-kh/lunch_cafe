@@ -1,0 +1,15 @@
+h2 = t('view.menu')
+- if @today_menu
+  h3 
+    = @today_menu.menu_date
+  br
+  ul.list-group.col-md-4
+    - @menu.each do |category|
+      h4
+        span.label.label-warning = category.name
+      - category.dishes.each do |dish|
+        li.list-group-item.d-flex.justify-content-between.align-items-center
+          h5
+            = dish.name
+            span.label.label-success.pull-right 
+              = "#{dish.weight} / #{dish.menu_item.price}"

@@ -1,0 +1,20 @@
+h1 = t('view.day_menu')
+br
+= link_to t('link.new_day_menu'), new_day_menu_path, class:"btn btn-success btn-sm"
+br
+br
+.col-md-4
+  table.table.table-striped
+    thead
+      tr
+        th scope="col"  
+        th scope="col"  
+        th scope="col" 
+        th scope="col"   
+    tbody
+      - @day_menus.each do |day_menu|
+        tr
+          td = link_to day_menu.menu_date, day_menu, class:"btn btn-link"
+          td = link_to t('link.edit'), edit_day_menu_path(day_menu), class:"btn btn-warning btn-sm"
+          td = link_to t('link.delete'), day_menu, data: { confirm: 'Are you sure?' }, method: :delete, class:"btn btn-danger btn-sm"
+          td = link_to t('link.menu_items'), day_menu_menu_items_path(day_menu), class:"btn btn-success btn-sm"

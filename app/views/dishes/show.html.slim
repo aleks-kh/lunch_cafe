@@ -1,0 +1,28 @@
+h4 Dish:
+br
+table.table.table-bordered
+  thead
+    tr
+      th scope="col"  = t('view.id')
+      th scope="col"  = t('view.name')
+      th scope="col"  = t('view.category')
+      th scope="col"  = t('view.dish_type')
+      th scope="col"  = t('view.weight')
+      th scope="col"  = t('view.uom')
+      th scope="col"  = t('view.created_by')
+      th scope="col"  = t('view.updated_by')
+  tbody
+    tr
+      th scope="row" = @dish.id
+      th = @dish.name
+      td = @dish.category.name
+      th = @dish.dish_type
+      th = @dish.weight
+      td = @dish.uom
+      td = format_date(@dish.created_at)
+      td = format_date(@dish.updated_at)
+br
+p.lead
+  => link_to t('link.edit'), edit_dish_path(@dish), class:"col-md-offset-1"
+  '|
+  =< link_to t('link.back'), dishes_path

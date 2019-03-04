@@ -1,0 +1,21 @@
+h1 = t('view.dishes')
+br
+= link_to t('link.new_dish'), new_dish_path, class:"btn btn-success btn-sm"
+br
+br
+br
+ul.list-inline.pt-10.mb-25.mr-240
+  li.mr-35
+    = link_to dishes_path, class: "filter-link" do
+      = t('link.all')
+      span.label.label-info
+        = Dish.count
+  - Category.all.each do |category|
+    li.mr-35
+      = link_to dishes_path(category: category.name), class: "filter-link" do
+        = "#{category.name}  "
+        span.label.label-info
+          = category.dishes.count
+br
+.mb-120
+  = render 'dishes', books: @dishes

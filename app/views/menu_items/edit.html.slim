@@ -1,0 +1,8 @@
+h1 = t('view.edit_menu_item')
+br
+== render 'form'
+br
+p.lead
+  => link_to t('link.show'), @menu_item
+  '|
+  =< link_to t('link.back'), day_menu_menu_items_path(@menu_item.day_menu_id)

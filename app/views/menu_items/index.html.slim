@@ -1,0 +1,40 @@
+h1 = t('view.menu_items')
+br
+.panel.panel-info
+  .panel-heading
+    h3.panel-title 
+      = t('info.dish_menu')
+  .panel-body
+    ul.nav.nav-tabs
+      - Category.all.each do |category|
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#" 
+            = category.name
+            span.caret
+          ul.dropdown-menu
+            - category.dishes.each do |dish|
+              li
+                = link_to dish.name, new_menu_item_path(@day_menu, dish.id), class: 'dropdown-item'
+br
+h4
+  b = t('view.dishes_menu')
+br
+.col-md-6
+  - Category.menu_categories(@day_menu.id).each do |category|
+    .panel.panel-success
+      .panel-heading
+        h3.panel-title 
+          = category.name
+      - category.dishes.each do |dish|    
+        .panel-body
+          .col-lg-6
+            = link_to dish.name, menu_item_path(dish.menu_item)
+          .col-lg-2
+            = dish.weight
+            = dish.uom
+          .col-lg-1
+            = dish.menu_item.price 
+          .col-lg-1
+            = link_to t('link.edit'), edit_menu_item_path(dish.menu_item)
+          .col-lg-1
+            = link_to t('link.delete'), dish.menu_item, data: { confirm: 'Are you sure?' }, method: :delete

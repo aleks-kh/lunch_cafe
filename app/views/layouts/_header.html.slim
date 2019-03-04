@@ -1,0 +1,27 @@
+header.navbar.navbar-default
+  .container
+    .navbar-header
+      button.navbar-toggle.pull-left[type="button" data-toggle="collapse" data-target="#navbar"]
+        span.sr-only
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand
+        = t('info.lunch_cafe')
+    #navbar.navbar-collapse.collapse.pl-30[aria-expanded="false"]
+      .hidden-xs
+        ul.nav.navbar-nav.mr-auto 
+          - if admin_signed_in? 
+            li
+              = link_to t('link.category'), categories_path
+            li
+              = link_to t('link.dishes'), dishes_path
+            li
+              = link_to t('link.day_menu'), day_menus_path  
+            li
+              = link_to t('link.menu'), root_path  
+            li      
+              = link_to t('link.log_out'), destroy_admin_session_path, method: :delete
+          - else
+            li
+              = link_to t('link.sign_up'), new_admin_registration_path
